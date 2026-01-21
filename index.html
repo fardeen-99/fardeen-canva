@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Design Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <header id="toolbar">
+        <div class="toolbar-container">
+            <button id="btn-add-rectangle">
+                Add Rectangle</button>
+            <button id="btn-add-text">
+                
+                Add Text</button>
+            <button id="btn-export-json">
+                Export JSON</button>
+            <button id="btn-export-html">
+                Export HTML</button>
+            <button id="btn-save-layout">
+                Save Layout</button>
+            <button id="btn-clear-canvas">
+                
+    </header>
+
+
+    <div id="main-container">
+       
+        <aside id="tools-panel">
+            <div class="tools-container">
+                <h3>Tools</h3>
+                <ul class="tools-list">
+                    <li>
+                        <button id="tool-select" class="tool-button active">Selection</button>
+                    </li>
+                    <li>
+                        <button id="tool-move" class="tool-button">Move</button>
+                    </li>
+                    <li>
+                        <button id="tool-resize" class="tool-button">Resize</button>
+                    </li>
+                    <li>
+                        <button id="tool-rotate" class="tool-button">Rotate</button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+     
+        <main id="canvas-area">
+            <section id="canvas-wrapper">
+                
+                <div id="canvas">
+                    
+                    <div class="canvas-element" data-element-id="elem-1" data-element-type="rectangle">
+                        <div class="element-content"></div>
+                       
+                        <div class="resize-handle top-left"></div>
+                        <div class="resize-handle top-right"></div>
+                        <div class="resize-handle bottom-left"></div>
+                        <div class="resize-handle bottom-right"></div>
+                        <div class="resize-handle top"></div>
+                        <div class="resize-handle bottom"></div>
+                        <div class="resize-handle left"></div>
+                        <div class="resize-handle right"></div>
+                        <div class="rotate-handle"></div>
+                    </div>
+                   
+                </div>
+            </section>
+        </main>
+
+        
+        <aside id="right-sidebar">
+      
+            <section id="layers-panel">
+                <div class="panel-header">
+                    <h3>Layers</h3>
+                </div>
+                <div class="panel-content">
+                    <ul id="layers-list" class="layers-list">
+                     
+                    </ul>
+                    <div class="layer-controls">
+                        <button id="btn-layer-move-up">Move Up</button>
+                        <button id="btn-layer-move-down">Move Down</button>
+                    </div>
+                </div>
+            </section>
+
+   
+            <section id="properties-panel" >
+                <div class="panel-header"style="display: flex; justify-content: space-between;">
+                    <h3>Properties </h3>
+                    <h3>back_spc=div_delete</h3>
+                </div>
+                <div class="panel-content">
+                    <div class="property-group">
+                        <label for="prop-width">Width</label>
+                        <input type="number" id="prop-width" name="width" min="1">
+                    </div>
+                    <div class="property-group">
+                        <label for="prop-height">Height</label>
+                        <input type="number" id="prop-height" name="height" min="1">
+                    </div>
+                    <div class="property-group">
+                        <label for="prop-bg-color">Background Color</label>
+                        <input type="color" id="prop-bg-color" name="background-color">
+                    </div>
+                    <div class="property-group">
+                        <label for="prop-text-content">Text Content</label>
+                        <textarea id="prop-text-content" name="text-content" rows="4"></textarea>
+                    </div>
+                    <div class="property-group">
+                        <label for="prop-rotation">Rotation (degrees)</label>
+                        <input type="number" id="prop-rotation" name="rotation" min="0" max="360" step="1">
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
