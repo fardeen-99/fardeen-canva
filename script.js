@@ -37,6 +37,12 @@ const propRotation = document.getElementById('prop-rotation')
 console.log("Canvas found?", canvas)
 console.log("Layers panel found?", layersList)
 
+
+// for prop ko text color dene ke liyeee
+
+
+const propTextColor = document.getElementById('prop-text-color')
+
 function generateId() {
   const id = 'elem-' + Date.now() + '-' + Math.random().toString(36).substr(2, 9)
   console.log("Generated new element id:", id);
@@ -178,7 +184,7 @@ function createElement(type) {
             ? '#2563eb'
             : '#ffffff',
 
-      color: '#1f2937',
+      color: type === 'text' ? '#1f2937' : '#1f2937',
       fontSize: 16,
       fontFamily: 'Arial',
       borderWidth: 0,
@@ -293,16 +299,16 @@ function renderElement(elementData) {
   content.style.fontSize = elementData.styles.fontSize + 'px'
   content.style.fontFamily = elementData.styles.fontFamily || 'Arial'
 
-  if (elementData.type !== 'text') {
-    content.style.backgroundColor = elementData.styles.backgroundColor
-    console.log("Applied background for non-text element")
-  } else {
-    content.style.backgroundColor = 'transparent'
-    content.style.padding = '0'
-    content.textContent = elementData.content
-    console.log("Text element content set:", elementData.content)
-  }
-
+if (elementData.type !== 'text') {
+  content.style.backgroundColor = elementData.styles.backgroundColor
+  console.log("Applied background for non-text element")
+} else {
+  content.style.backgroundColor = 'transparent'
+  element.style.backgroundColor = 'transparent'  
+  content.style.padding = '0'
+  content.textContent = elementData.content
+  console.log("Text element content set:", elementData.content)
+}
   element.appendChild(content)
   createResizeHandles(element)
   createRotateHandle(element)
@@ -722,13 +728,18 @@ function updatePropertiesPanel() {
       : elementData.styles.backgroundColor
   propRotation.value = Math.round(elementData.rotation)
 
-  if (elementData.type === 'text') {
-    propTextContent.value = elementData.content
-    propTextContent.closest('.property-group').style.display = 'block'
-    console.log("Text properties shown")
-  } else {
-    propTextContent.closest('.property-group').style.display = 'none'
-  }
+ if (elementData.type === 'text') {
+  propTextContent.value = elementData.content
+  propTextContent.closest('.property-group').style.display = 'block'
+  propTextColor.value = elementData.styles.color  
+  document.getElementById('text-color-group').style.display = 'block'  
+  document.querySelector('label[for="prop-bg-color"]').parentElement.style.display = 'none'  
+  console.log("Text properties shown")
+} else {
+  propTextContent.closest('.property-group').style.display = 'none'
+  document.getElementById('text-color-group').style.display = 'none'  
+  document.querySelector('label[for="prop-bg-color"]').parentElement.style.display = 'block'  
+}
 }
 
 function clearPropertiesPanel() {
@@ -739,6 +750,7 @@ function clearPropertiesPanel() {
   propBgColor.value = '#ffffff'
   propTextContent.value = ''
   propRotation.value = ''
+  propTextColor.value = '#1f2937'  
 }
 
 function onPropertyChange(property, value) {
@@ -778,6 +790,12 @@ function onPropertyChange(property, value) {
       elementData.content = value
       content.textContent = value
       break
+
+case 'textColor':  
+  elementData.styles.color = value
+  content.style.color = value
+  break
+
 
     case 'rotation': {
       const rotation = parseFloat(value) || 0
@@ -1251,6 +1269,7 @@ function initEventListeners() {
   propBgColor.addEventListener('input', e => onPropertyChange('backgroundColor', e.target.value))
   propTextContent.addEventListener('input', e => onPropertyChange('textContent', e.target.value))
   propRotation.addEventListener('input', e => onPropertyChange('rotation', e.target.value))
+  propTextColor.addEventListener('input', e => onPropertyChange('textColor', e.target.value))  
 
   canvas.addEventListener('click', e => {
     if (e.target === canvas || e.target.id === 'canvas') {
