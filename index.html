@@ -7,27 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
+    <!-- Top Toolbar -->
     <header id="toolbar">
         <div class="toolbar-container">
-            <button id="btn-add-rectangle">
-                Add Rectangle</button>
-            <button id="btn-add-text">
-                
-                Add Text</button>
-            <button id="btn-export-json">
-                Export JSON</button>
-            <button id="btn-export-html">
-                Export HTML</button>
-            <button id="btn-save-layout">
-                Save Layout</button>
-            <button id="btn-clear-canvas">
-                
+            <button id="btn-add-rectangle">Add Rectangle</button>
+            <button id="btn-add-text">Add Text</button>
+            <button id="btn-export-json">Export JSON</button>
+            <button id="btn-export-html">Export HTML</button>
+            <button id="btn-save-layout">Save Layout</button>
+            <button id="btn-clear-canvas">Clear Canvas</button>
+        </div>
     </header>
 
-
+    <!-- Main Content Area -->
     <div id="main-container">
-       
+        <!-- Left Tools Panel -->
         <aside id="tools-panel">
             <div class="tools-container">
                 <h3>Tools</h3>
@@ -48,15 +42,15 @@
             </div>
         </aside>
 
-     
+        <!-- Center Canvas Area -->
         <main id="canvas-area">
             <section id="canvas-wrapper">
-                
+                <!-- Canvas Container - All design elements will be dynamically added here -->
                 <div id="canvas">
-                    
+                    Example element structure (commented out):
                     <div class="canvas-element" data-element-id="elem-1" data-element-type="rectangle">
                         <div class="element-content"></div>
-                       
+                        Resize handles would be added dynamically:
                         <div class="resize-handle top-left"></div>
                         <div class="resize-handle top-right"></div>
                         <div class="resize-handle bottom-left"></div>
@@ -72,16 +66,16 @@
             </section>
         </main>
 
-        
+        <!-- Right Sidebar -->
         <aside id="right-sidebar">
-      
+            <!-- Layers Panel -->
             <section id="layers-panel">
                 <div class="panel-header">
                     <h3>Layers</h3>
                 </div>
                 <div class="panel-content">
                     <ul id="layers-list" class="layers-list">
-                     
+                        <!-- Layers will be dynamically added here -->
                     </ul>
                     <div class="layer-controls">
                         <button id="btn-layer-move-up">Move Up</button>
@@ -90,7 +84,7 @@
                 </div>
             </section>
 
-   
+            <!-- Properties Panel -->
             <section id="properties-panel" >
                 <div class="panel-header"style="display: flex; justify-content: space-between;">
                     <h3>Properties </h3>
