@@ -232,6 +232,7 @@ body {
   padding: var(--spacing-md);
   color: var(--color-text-primary);
   word-wrap: break-word;
+  overflow: hidden;
 }
 /* 
 .resize-handle {
