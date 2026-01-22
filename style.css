@@ -662,3 +662,23 @@ body {
   z-index: 999;
   font-size: 1.3rem;
 }
+
+
+/* Dark thin scrollbar */
+::-webkit-scrollbar {
+  width: 6px;      /* patla */
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;   /* dark background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;   /* zinc gray */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;   /* hover lighter */
+}
