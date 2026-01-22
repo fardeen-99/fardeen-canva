@@ -231,6 +231,7 @@ body {
   height: 100%;
   padding: var(--spacing-md);
   color: var(--color-text-primary);
+  word-wrap: break-word;
 }
 /* 
 .resize-handle {
@@ -238,10 +239,11 @@ body {
   width: 8px;
   height: 8px;
   background: white;
-  border: 2px solid var(--color-accent);
-  border-radius: 50%;
+  border: 2px solid oink;
+  border-radius: 50% -50%;
   transition: transform var(--transition-fast);
   opacity: 0;
+  backgr
   pointer-events: none;
 } */
 
