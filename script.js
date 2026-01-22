@@ -488,10 +488,10 @@ function endDrag() {
 
 function startResize(e, handle, element) {
   e.stopPropagation()
-  e.stopImmediatePropagation()  
+  e.preventDefault()
+  
   const id = element.dataset.elementId
   const elementData = getElementData(id)
-editorState.dragState = null
 
   if (!elementData) {
     console.log("Resize failed, element data missing")
@@ -513,7 +513,6 @@ editorState.dragState = null
   }
 
   console.log("Resize state set:", editorState.resizeState)
-  e.preventDefault()
 }
 
 function onResize(e) {
