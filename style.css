@@ -380,11 +380,15 @@ body {
   color: var(--color-text-muted);
 }
 
-.panel-content {
+/* .panel-content {
   padding: var(--spacing-lg);
   overflow-y: auto;
+} */
+.panel-content {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+    max-height: 40vh;
 }
-
 .layers-list {
   list-style: none;
   margin: 0 0 var(--spacing-md) 0;
